@@ -15,12 +15,18 @@ const Header: React.FC = () => {
       </div>
       <nav className={styles.navigation}>
         <ul>
-          <li><Link to="/community">커뮤니티</Link></li>
+          <li>
+            <Link to="/community">커뮤니티</Link>
+          </li>
           <li>
             {isLoggedIn ? (
-              <Link to="/mypage" className={styles.loginButton}>마이페이지</Link>
+              <Link to="/mypage" className={styles.loginButton}>
+                마이페이지
+              </Link>
             ) : (
-              <Link to="/login" className={styles.loginButton}>로그인</Link>
+              <Link to="/login" className={styles.loginButton}>
+                로그인
+              </Link>
             )}
           </li>
         </ul>

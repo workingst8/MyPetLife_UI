@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Post } from "../../models/board";
-import styles from "./BoardList.module.scss";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Post } from '../../models/board';
+import styles from './BoardList.module.scss';
 
 interface PostsProps {
   posts: Post[];

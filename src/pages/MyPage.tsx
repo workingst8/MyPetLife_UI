@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import styles from "./pages.module.scss";
+import styles from './pages.module.scss';
 import { useAuth } from '../contexts/AuthContext';
 
 interface UserProfile {
@@ -12,8 +12,8 @@ const MyPage: React.FC = () => {
   const { isLoggedIn, logout } = useAuth();
   const navigate = useNavigate();
   const [userProfile, setUserProfile] = useState<UserProfile>({
-    nickname: "사용자123",
-    profilePicture: "https://via.placeholder.com/100",
+    nickname: '사용자123',
+    profilePicture: 'https://via.placeholder.com/100',
   });
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -26,8 +26,8 @@ const MyPage: React.FC = () => {
   }, [isLoggedIn]);
 
   const handleEditNickname = () => {
-    const newNickname = prompt("새 닉네임을 입력하세요", userProfile.nickname);
-    if (newNickname && newNickname.trim() !== "") {
+    const newNickname = prompt('새 닉네임을 입력하세요', userProfile.nickname);
+    if (newNickname && newNickname.trim() !== '') {
       setUserProfile({ ...userProfile, nickname: newNickname });
     }
   };
@@ -39,7 +39,10 @@ const MyPage: React.FC = () => {
         const uploadedImageUrl = e.target && e.target.result;
 
         if (uploadedImageUrl) {
-          setUserProfile({ ...userProfile, profilePicture: uploadedImageUrl.toString() });
+          setUserProfile({
+            ...userProfile,
+            profilePicture: uploadedImageUrl.toString(),
+          });
         }
       };
       fileReader.readAsDataURL(event.target.files[0]);
@@ -73,7 +76,9 @@ const MyPage: React.FC = () => {
           </div>
           <button className={styles.button}>내가 쓴 글 보기</button>
           <button className={styles.button}>내가 쓴 댓글 보기</button>
-          <Link to="/login" onClick={logout} className={styles.loginButton}><button className={styles.button}>로그아웃</button></Link>
+          <Link to="/login" onClick={logout} className={styles.loginButton}>
+            <button className={styles.button}>로그아웃</button>
+          </Link>
         </div>
       </div>
     </div>

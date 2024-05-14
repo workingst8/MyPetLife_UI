@@ -19,7 +19,9 @@ const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
   useEffect(() => {
     const updateViews = async () => {
       try {
-        const response = await axios.post(`/api/posts/${post.id}/increment-views`);
+        const response = await axios.post(
+          `/api/posts/${post.id}/increment-views`,
+        );
         setViews(response.data.views);
       } catch (error) {
         console.error('조회수 업데이트 중 오류 발생:', error);
@@ -50,7 +52,10 @@ const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as HTMLElement)) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as HTMLElement)
+      ) {
         setShowChatOption(false);
       }
     };
@@ -65,17 +70,19 @@ const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
     <div className={styles.postDetail}>
       <h1>{post.title}</h1>
       <div className={styles.authorInfo}>
-        <img 
-          src={post.profilePic} 
-          alt="작성자 프로필" 
-          className={styles.profilePic} 
+        <img
+          src={post.profilePic}
+          alt="작성자 프로필"
+          className={styles.profilePic}
           onClick={handleProfileClick}
         />
         <span>{post.author}</span>
         {showChatOption && (
           <div className={styles.chatOptions} ref={menuRef}>
             <ul>
-              <li><button onClick={handleChatClick}>채팅하기</button></li>
+              <li>
+                <button onClick={handleChatClick}>채팅하기</button>
+              </li>
             </ul>
           </div>
         )}

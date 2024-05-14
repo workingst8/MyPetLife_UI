@@ -6,8 +6,8 @@ export interface Post {
   author: string;
   profilePic: string;
   comments?: Comment[];
-  likes:number;
-  views:number;
+  likes: number;
+  views: number;
 }
 export interface Comment {
   id: number;
@@ -18,8 +18,7 @@ export interface Comment {
   createdAt: string;
   order: number;
   author: string;
-  profilePic: string; 
+  profilePic: string;
   classNum?: number;
   groupNum?: number;
 }
-

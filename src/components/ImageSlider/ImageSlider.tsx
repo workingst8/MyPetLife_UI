@@ -12,11 +12,7 @@ const ImageSlider: React.FC = () => {
 
   return (
     <div>
-      <Swiper
-        loop={true}
-        slidesPerView={1}
-        className={styles.slideMain}
-      >
+      <Swiper loop={true} slidesPerView={1} className={styles.slideMain}>
         {imageUrls.map((url, index) => (
           <SwiperSlide key={index}>
             <img src={url} alt={`Slide ${index + 1}`} />

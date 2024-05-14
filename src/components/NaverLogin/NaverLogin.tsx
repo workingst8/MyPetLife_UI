@@ -1,5 +1,5 @@
 // import React, { useEffect } from "react";
-import styles from "./NaverLogin.module.scss";
+import styles from './NaverLogin.module.scss';
 import { Link } from 'react-router-dom'; // 네이버 로그인 버튼 클릭시 바로 마이페이지 이동 위해(임시)
 import { useAuth } from '../../contexts/AuthContext';
 

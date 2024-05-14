@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styles from "./pages.module.scss";
+import styles from './pages.module.scss';
 import { Post } from '../models/board';
 import BoardList from '../components/BoardList/BoardList';
 import { useNavigate } from 'react-router-dom';
@@ -17,15 +17,14 @@ const CommunityPage: React.FC = () => {
       const data = await Promise.resolve([
         {
           id: 1,
-          title: "글 제목 1",
-          content: "내용 1",
-          createdAt: "2022-01-01",
-          author: "작성자 1",
-          profilePic: "./images/test.jpg",
+          title: '글 제목 1',
+          content: '내용 1',
+          createdAt: '2022-01-01',
+          author: '작성자 1',
+          profilePic: './images/test.jpg',
           likes: 0,
           views: 0,
-          comments: [
-          ],
+          comments: [],
         },
       ]);
       setPosts(data);
@@ -46,12 +45,13 @@ const CommunityPage: React.FC = () => {
     setSortBy(event.target.value);
   };
 
-  const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     setSearchTerm(event.target.value);
   };
 
-  const handleSearchSubmit = () => {
-  };
+  const handleSearchSubmit = () => {};
 
   return (
     <div className={styles.pageContainer}>
@@ -72,7 +72,12 @@ const CommunityPage: React.FC = () => {
             />
             <button onClick={handleSearchSubmit}>검색</button>
           </div>
-          <button onClick={handleWriteButtonClick} className={styles.writeButton}>글쓰기</button>
+          <button
+            onClick={handleWriteButtonClick}
+            className={styles.writeButton}
+          >
+            글쓰기
+          </button>
         </div>
         <BoardList posts={posts} basePath="community" />
       </div>

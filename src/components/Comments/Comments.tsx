@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Comment } from "../../models/board";
-import styles from "./Comments.module.scss";
+import { Comment } from '../../models/board';
+import styles from './Comments.module.scss';
 
 interface CommentItemProps {
   comment: Comment;
@@ -50,7 +50,9 @@ const CommentItem: React.FC<CommentItemProps> = ({ comment, comments }) => {
         {showChatOption && (
           <div className={styles.chatOptions} ref={menuRef}>
             <ul>
-              <li><button onClick={handleChatClick}>채팅하기</button></li>
+              <li>
+                <button onClick={handleChatClick}>채팅하기</button>
+              </li>
             </ul>
           </div>
         )}
