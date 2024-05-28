@@ -5,15 +5,27 @@ import { useNavigate } from 'react-router-dom';
 import DOMPurify from 'dompurify';
 
 const CommunityWritePage: React.FC = () => {
+  const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [isReadOnly, setIsReadOnly] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(event.target.value);
+  };
 
   const handleChange = (newContent: string) => {
     setContent(newContent);
   };
 
   const handleSubmit = () => {
+
+    if (!title || !content) {
+      setError('제목과 내용을 입력해주세요.');
+      return;
+    }
+
     setIsReadOnly(true);
   };
 
@@ -27,6 +39,24 @@ const CommunityWritePage: React.FC = () => {
     <div className={styles.pageContainer}>
       <div className="fadeIn">
         <h1>글쓰기</h1>
+        {error && <p className={styles.error}>{error}</p>}
+        <div className={styles.title}>
+          {!isReadOnly ? (
+            <>
+          <label htmlFor="title">제목</label>
+          <input
+            type="text"
+            id="title"
+            value={title}
+            onChange={handleTitleChange}
+            required
+          />
+          </>):(
+            <div style={{color:'#ccc', fontSize:'13px'}}>*실제 서버와 연결된 환경에서는 CommunityDetail 페이지에서 형식에 맞게 출력됩니다.</div>
+          )
+
+        }
+        </div>
         {!isReadOnly ? (
           <>
             <QuillEditor content={content} onChange={handleChange} />
@@ -36,7 +66,6 @@ const CommunityWritePage: React.FC = () => {
           </>
         ) : (
           <>
-            {/* 실제로는 작성한 글을 등록하시겠습니까? 이후에 CommunityDetail 페이지로 이동해서 보여줘야함 */}
             <div
               className={styles.readOnlyContent}
               dangerouslySetInnerHTML={createMarkup(content)}

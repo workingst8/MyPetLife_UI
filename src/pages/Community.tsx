@@ -26,6 +26,17 @@ const CommunityPage: React.FC = () => {
           views: 0,
           comments: [],
         },
+        {
+          id: 2,
+          title: '글 제목 2',
+          content: '내용 2',
+          createdAt: '2022-01-01',
+          author: '작성자 2',
+          profilePic: './images/test.jpg',
+          likes: 0,
+          views: 0,
+          comments: [],
+        }
       ]);
       setPosts(data);
     };
@@ -68,7 +79,7 @@ const CommunityPage: React.FC = () => {
               type="text"
               value={searchTerm}
               onChange={handleSearchInputChange}
-              placeholder="검색어를 입력하세요"
+              placeholder="검색어 입력"
             />
             <button onClick={handleSearchSubmit}>검색</button>
           </div>

@@ -5,28 +5,44 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+
+    .filterSearchContainer {
+      display: flex;
+      align-items: center;
+    }
+
+    .filterSearchContainer select,
+    .filterSearchContainer input[type='text'] {
+      margin-right: 10px;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: #25c3a8;
+      color: #fff;
+    }
   }
 
-  .filterSearchContainer {
+  .title {
+    margin-top: 10px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 5px 0;
+
+    input {
+      border: 1px solid #ccc;
+      height: 40px;
+      padding-left: 10px;
+    }
   }
 
-  .filterSearchContainer select,
-  .filterSearchContainer input[type='text'] {
-    margin-right: 10px;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-
-  .filterSearchContainer button {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    background-color: #25c3a8;
-    color: #fff;
-    cursor: pointer;
+  .error {
+    color: red;
   }
 
   .btn {
@@ -38,8 +54,7 @@
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    }
   }
 
   .myPage {
@@ -77,19 +92,23 @@
   .readOnlyContent {
     margin-top: 30px;
   }
-}
+
 
 @media only screen and (max-width: 1024px) {
   .pageContainer {
     padding: 10px;
 
-    .filterSearchContainer select,
-    .filterSearchContainer input[type='text'] {
-      padding: 4px;
-    }
+    .headerWithButton {
+      .filterSearchContainer select,
+      .filterSearchContainer input[type='text'] {
+        width: auto;
+        max-width: 100px;
+        padding: 4px;
+      }
 
-    .filterSearchContainer button {
-      padding: 4px 8px;
+      button {
+        padding: 4px 8px;
+      }
     }
   }
 }
